@@ -29,7 +29,15 @@ MonoBehaviour:
   cost:
   - resource: 0
     quantity: 5
-  production: []
+  production:
+  - default_production:
+      resource: 1
+      quantity: 2
+    altitude_bonus:
+      min_altitude: 0
+      step_height: 0
+      max_step: 0
+      bonus_per_step: 0
   display_sprite: {fileID: -289497506, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:

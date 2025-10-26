@@ -226,7 +226,8 @@ public class GridManager : MonoBehaviour
 
     public void RemoveCellDelegate(int2 cell, System.Action<int2> callback)
     {
-        cell_update_delegates[cell] -= callback;
+        if(cell_update_delegates.ContainsKey(cell))
+            cell_update_delegates[cell] -= callback;
     }
 
     public void TriggerCellUpdate(int2 cell)

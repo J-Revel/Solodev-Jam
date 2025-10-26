@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceManager
   max_vfx_delay: 0.3
-  stock: 1e0000000a000000
+  stock: c8000000c8000000
   resource_display: {fileID: 1122550245}
   resource_gain_vfx_pool:
     prefab: {fileID: 3656870770446647776, guid: d5a913a81832b44438ecf26b9f7bed81, type: 3}
