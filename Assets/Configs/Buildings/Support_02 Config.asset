@@ -28,7 +28,7 @@ MonoBehaviour:
   - cell:
       x: 1
       y: 1
-    type: 10
+    type: 6
   - cell:
       x: 1
       y: 0
@@ -37,9 +37,7 @@ MonoBehaviour:
   cost:
   - resource: 0
     quantity: 30
-  gain_on_tick:
-  - resource: 0
-    quantity: 1
+  production: []
   display_sprite: {fileID: -979694437, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
