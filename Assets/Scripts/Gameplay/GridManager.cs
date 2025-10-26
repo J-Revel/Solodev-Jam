@@ -171,9 +171,9 @@ public class GridManager : MonoBehaviour
         for (int i = y_range.x; i < y_range.y; i++)
         {
             int2 cell = new int2(column, i);
-            if(occupancy.Remove(cell, out BuildingBase building))
+            if (occupancy.Remove(cell, out BuildingBase building))
             {
-                building.on_kill();
+                building.Kill();
             }
         }
     }

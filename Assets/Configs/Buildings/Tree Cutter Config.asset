@@ -16,31 +16,26 @@ MonoBehaviour:
   - cell:
       x: 0
       y: 0
-    is_support: 1
+    type: 14
   - cell:
       x: 1
       y: 0
-    is_support: 1
+    type: 14
   - cell:
       x: 0
       y: 1
-    is_support: 1
+    type: 6
   - cell:
       x: 1
       y: 1
-    is_support: 1
-  support_cells:
-  - x: 0
-    y: -1
-  - x: 1
-    y: -1
-  icon: {fileID: 6716882894768616766, guid: a0fe39b5ef62fd84789cc30fffecc523, type: 3}
+    type: 6
+  icon: {fileID: 1935638740, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost:
   - resource: 0
     quantity: 10
-  gain_on_tick: []
-  display_sprite: {fileID: -27703342, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
-  scale: 1
+  production: []
+  display_sprite: {fileID: 1935638740, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  scale: 2
   display_offset:
     x: 0.5
     y: 0.5

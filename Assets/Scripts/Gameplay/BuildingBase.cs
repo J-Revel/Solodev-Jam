@@ -5,6 +5,7 @@ public class BuildingBase : MonoBehaviour
 {
     public System.Action on_tick;
     public System.Action on_kill;
+    private bool killed = false;
     public BuildingConfig config;
     public int2 cell;
 
@@ -42,13 +43,14 @@ public class BuildingBase : MonoBehaviour
     {
         if (!GridManager.instance.support.ContainsKey(cell))
         {
-            on_kill?.Invoke();
+            Kill();
         }
     }
 
 
     private void OnKill()
     {
+        killed = true;
         int2 cell = GridManager.instance.GetCellAtPosition(((float3)transform.position).xy);
         foreach(OccupancyCell occupancy in config.occupancy_cells)
         {
@@ -72,5 +74,14 @@ public class BuildingBase : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Kill()
+    {
+        if(!killed)
+        {
+            on_kill?.Invoke();
+            killed = true;
+        }
     }
 }

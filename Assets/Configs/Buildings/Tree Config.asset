@@ -16,13 +16,10 @@ MonoBehaviour:
   - cell:
       x: 0
       y: 0
-    is_support: 0
-  support_cells:
-  - x: 0
-    y: -1
+    type: 10
   icon: {fileID: 1168926902407322946, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost: []
-  gain_on_tick: []
+  production: []
   display_sprite: {fileID: 1168926902407322946, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:

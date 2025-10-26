@@ -94,7 +94,7 @@ public class PlayerInputManager : MonoBehaviour
                 if(Mouse.current.rightButton.wasPressedThisFrame)
                 {
                     if (GridManager.instance.occupancy.ContainsKey(mouse_cell) && GridManager.instance.occupancy[mouse_cell] != null)
-                        GridManager.instance.occupancy[mouse_cell].on_kill?.Invoke();
+                        GridManager.instance.occupancy[mouse_cell].Kill();
                 }
             }
             else
