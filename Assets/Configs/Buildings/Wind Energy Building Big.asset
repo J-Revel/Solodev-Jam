@@ -10,46 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c29a2647e20bddd4eb94918ee11fb8dd, type: 3}
-  m_Name: Support_02 Config
+  m_Name: Wind Energy Building Big
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfig
   occupancy_cells:
   - cell:
-      x: -1
+      x: 0
       y: 0
-    type: 14
-  - cell:
-      x: -1
-      y: 1
-    type: 6
+    type: 10
   - cell:
       x: 0
       y: 1
-    type: 6
-  - cell:
-      x: 1
-      y: 1
-    type: 10
-  - cell:
-      x: 1
-      y: 0
-    type: 14
-  icon: {fileID: -979694437, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+    type: 3
+  icon: {fileID: -652005037, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost:
   - resource: 0
-    quantity: 30
-  gain_on_tick:
-  - resource: 0
-    quantity: 1
-  display_sprite: {fileID: -979694437, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+    quantity: 5
+  production:
+  - default_production:
+      resource: 1
+      quantity: 1
+    altitude_bonus:
+      min_altitude: 0
+      step_height: 2
+      max_step: 3
+      bonus_per_step: 1
+  display_sprite: {fileID: -652005037, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
     x: 0
-    y: 0.5
+    y: 0
   building_influence: 0
   prefab_override: {fileID: 0}
-  unlock_cost:
-  - resource: 0
-    quantity: 10
+  unlock_cost: []
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}

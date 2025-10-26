@@ -31,5 +31,15 @@ MonoBehaviour:
   building_influence: 0
   prefab_override: {fileID: 0}
   unlock_cost: []
+  avoid_buildings:
+  - min_offset:
+      x: 0
+      y: 0
+    max_offset:
+      x: 0
+      y: 0
+    detected_buildings: []
+  area_preview_range: 0
+  area_preview_color: {r: 0, g: 0, b: 0, a: 0}
   title: 
   description: 

@@ -16,39 +16,39 @@ MonoBehaviour:
   - cell:
       x: 0
       y: 0
-    is_support: 1
+    type: 14
   - cell:
       x: 1
       y: 0
-    is_support: 1
+    type: 14
   - cell:
       x: -1
       y: 0
-    is_support: 1
+    type: 14
   - cell:
       x: 0
       y: 1
-    is_support: 1
+    type: 6
   - cell:
       x: 1
       y: 1
-    is_support: 1
+    type: 6
   - cell:
       x: -1
       y: 1
-    is_support: 1
+    type: 6
   - cell:
       x: 0
       y: 2
-    is_support: 1
+    type: 6
   - cell:
       x: 1
       y: 2
-    is_support: 1
+    type: 6
   - cell:
       x: -1
       y: 2
-    is_support: 1
+    type: 6
   support_cells:
   - x: 0
     y: -1
@@ -72,5 +72,7 @@ MonoBehaviour:
   prefab_override: {fileID: 0}
   unlock_cost: []
   avoid_buildings: []
+  area_preview_range: 0
+  area_preview_color: {r: 0, g: 0, b: 0, a: 0}
   title: Warehouse
   description: The main building of your town. You can build only near warehouses.

@@ -125,6 +125,12 @@ public class ResourceManager : MonoBehaviour
             stock[i] += gain_per_tick[i];
     }
 
+    public void AddResource(ResourceQuantity quantity, float3 pos)
+    {
+        stock[(int)quantity.resource] += quantity.quantity;
+        AddResourceGainVFX(quantity, pos);
+    }
+
     public void AddResourceGainPerTick(ResourceQuantity quantity)
     {
         gain_per_tick[(int)quantity.resource] += quantity.quantity;

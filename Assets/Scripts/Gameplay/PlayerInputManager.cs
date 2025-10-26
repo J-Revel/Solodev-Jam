@@ -117,6 +117,10 @@ public class PlayerInputManager : MonoBehaviour
             {
                 ghost_tiles_pool.Pick<Transform>(new float3((float2)good_cell, 0));
             }
+            AreaDisplayManager.instance.DisplayZone(
+                mouse_cell - selected_building.area_preview_range,
+                mouse_cell + selected_building.area_preview_range,
+                selected_building.area_preview_color);
 
             if(Mouse.current.leftButton.wasPressedThisFrame 
                 && selected_building != null

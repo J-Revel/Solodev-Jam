@@ -46,3 +46,17 @@ MonoBehaviour:
     y: 0.5
   building_influence: 0
   prefab_override: {fileID: 419267030869956637, guid: 720ca7ead97b48845bd4a28817d3557c, type: 3}
+  unlock_cost: []
+  avoid_buildings:
+  - min_offset:
+      x: -10
+      y: -10
+    max_offset:
+      x: 10
+      y: 10
+    detected_buildings:
+    - {fileID: 11400000}
+  area_preview_range: 5
+  area_preview_color: {r: 1, g: 0.8066038, b: 0.8066038, a: 0.19215687}
+  title: 
+  description: 

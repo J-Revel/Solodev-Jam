@@ -1,15 +1,25 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+public struct CellData
+{
+    public OccupancyCell cell;
+    public BuildingBase origin_building;
+}
+
 public class GridManager : MonoBehaviour
 {
     public static GridManager instance;
     public GameConfig game_config;
+
+    public List<CellData> cell_data = new List<CellData>(); 
     public Dictionary<int2, BuildingBase> occupancy = new Dictionary<int2, BuildingBase>();
     public Dictionary<int2, BuildingBase> support = new Dictionary<int2, BuildingBase>();
+    public Dictionary<int2, List<BuildingBase>> keep_empty = new Dictionary<int2, List<BuildingBase>>();
     public Dictionary<int2, System.Action<int2>> cell_update_delegates = new Dictionary<int2, System.Action<int2>>();
     public Dictionary<int, int> influence_columns = new Dictionary<int, int>();
     public List<TilemapCollider2D> tilemap_colliders = new List<TilemapCollider2D>();
@@ -45,6 +55,20 @@ public class GridManager : MonoBehaviour
             && influence_columns.ContainsKey(cell.x)
             && influence_columns[cell.x] > 0;
     }
+    bool CellHasSupport(int2 cell)
+    {
+        bool colliders = false;
+        int2 bottom_cell = cell - new int2(0, 1);
+        foreach (var tilemap_collider in tilemap_colliders)
+        {
+            if (tilemap_collider.OverlapPoint(GetCellPosition(bottom_cell)))
+                colliders = true;
+        }
+        return (GridManager.instance.support.ContainsKey(bottom_cell) 
+            || colliders)
+            && influence_columns.ContainsKey(cell.x)
+            && influence_columns[cell.x] > 0;
+    }
 
     bool IsCellSupport(int2 cell)
     {
@@ -60,23 +84,51 @@ public class GridManager : MonoBehaviour
             && influence_columns[cell.x] > 0;
     }
 
+    public NativeArray<int2> DetectBuildingsInArea(int2 min, int2 max, BuildingConfig[] configs, Allocator allocator)
+    {
+        NativeList<int2> result = new NativeList<int2>(allocator);
+        for(int i=min.x; i<=max.x; i++)
+        {
+            for(int j=min.y; j<=max.y; j++)
+            {
+                int2 cell = new int2(i, j);
+
+                if(occupancy.TryGetValue(cell, out BuildingBase building))
+                {
+                    if(configs.Contains(building.config))
+                    {
+                        result.Add(cell);
+                    }
+                }
+            }
+        }
+        return result.AsArray();
+    }
+
     public bool CanPlaceBuilding(int2 cell, BuildingConfig building, out NativeArray<int2> out_good_cells, out NativeArray<int2> out_error_cells)
     {
         NativeList<int2> error_cells = new NativeList<int2>(Allocator.Temp);
         NativeList<int2> good_cells = new NativeList<int2>(Allocator.Temp);
         foreach(OccupancyCell occupancy in building.occupancy_cells)
         {
-            if (!IsCellAvailable(cell + occupancy.cell))
+            bool cell_valid = true;
+            if(
+                (occupancy.type.HasFlag(CellType.Occupancy) 
+                    || occupancy.type.HasFlag(CellType.KeepEmpty)) 
+                && !IsCellAvailable(cell + occupancy.cell))
+            {
+                cell_valid = false;
+            }
+            if (occupancy.type.HasFlag(CellType.NeedSupport) && !CellHasSupport(cell + occupancy.cell))
+                error_cells.Add(cell + occupancy.cell + new int2(0, -1));
+            if (!cell_valid)
                 error_cells.Add(cell + occupancy.cell);
             else
                 good_cells.Add(cell + occupancy.cell);
         }
-        foreach(int2 cell_offset in building.support_cells)
+        foreach(var avoid in building.avoid_buildings)
         {
-            if (IsCellSupport(cell + cell_offset))
-                error_cells.Add(cell + cell_offset);
-            else
-                good_cells.Add(cell + cell_offset);
+            error_cells.AddRange(DetectBuildingsInArea(cell + avoid.min_offset, cell + avoid.max_offset, avoid.detected_buildings, Allocator.Temp));
         }
         out_error_cells = error_cells.AsArray();
         out_good_cells = good_cells.AsArray();
@@ -175,5 +227,11 @@ public class GridManager : MonoBehaviour
     public void RemoveCellDelegate(int2 cell, System.Action<int2> callback)
     {
         cell_update_delegates[cell] -= callback;
+    }
+
+    public void TriggerCellUpdate(int2 cell)
+    {
+        if(cell_update_delegates.ContainsKey(cell))
+            cell_update_delegates[cell]?.Invoke(cell);
     }
 }

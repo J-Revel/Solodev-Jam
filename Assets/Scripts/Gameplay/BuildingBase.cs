@@ -11,21 +11,28 @@ public class BuildingBase : MonoBehaviour
     void Start()
     {
         cell = GridManager.instance.GetCellAtPosition(((float3)transform.position).xy);
-        foreach(var gain in config.gain_on_tick)
-            ResourceManager.instance.AddResourceGainPerTick(gain);
-        Debug.Log(transform.position + " " + cell);
         foreach(OccupancyCell occupancy in config.occupancy_cells)
         {
-            GridManager.instance.occupancy[cell + occupancy.cell] = this;
-            if(occupancy.is_support)
+            int2 occupancy_cell = cell + occupancy.cell;
+            if(occupancy.type.HasFlag(CellType.Occupancy))
             {
-                GridManager.instance.support[cell + occupancy.cell] = this;
+                GridManager.instance.occupancy[occupancy_cell] = this;
             }
-        }
-        foreach(int2 supporting_cell in config.support_cells)
-        {
-            int2 world_cell = cell + supporting_cell;
-            GridManager.instance.RegisterCellDelegate(world_cell, OnCellUpdate);
+            if(occupancy.type.HasFlag(CellType.Support))
+            {
+                GridManager.instance.support[occupancy_cell] = this;
+            }
+            if(occupancy.type.HasFlag(CellType.NeedSupport))
+            {
+                GridManager.instance.RegisterCellDelegate(occupancy_cell, OnCellUpdate);
+            }
+            if(occupancy.type.HasFlag(CellType.KeepEmpty))
+            {
+                ref var keep_empty = ref GridManager.instance.keep_empty;
+                if(!keep_empty.ContainsKey(occupancy_cell))
+                    keep_empty.Add(occupancy_cell, new System.Collections.Generic.List<BuildingBase>());
+                keep_empty[occupancy_cell].Add(this);
+            }
         }
         on_kill += OnKill;
         GridManager.instance.AddInfluence(cell.x, config.building_influence);
@@ -43,22 +50,19 @@ public class BuildingBase : MonoBehaviour
     private void OnKill()
     {
         int2 cell = GridManager.instance.GetCellAtPosition(((float3)transform.position).xy);
-        foreach(int2 supporting_cell in config.support_cells)
-        {
-            int2 world_cell = cell + supporting_cell;
-            GridManager.instance.RemoveCellDelegate(world_cell, OnCellUpdate);
-        }
-        foreach(var gain in config.gain_on_tick)
-            ResourceManager.instance.RemoveResourceGainPerTick(gain);
         foreach(OccupancyCell occupancy in config.occupancy_cells)
         {
             GridManager.instance.occupancy.Remove(cell + occupancy.cell);
-            if(occupancy.is_support)
+            if(occupancy.type.HasFlag(CellType.Support))
             {
                 int2 support_cell = cell + occupancy.cell;
                 GridManager.instance.support.Remove(support_cell);
-                if(GridManager.instance.cell_update_delegates.ContainsKey(support_cell))
-                    GridManager.instance.cell_update_delegates[support_cell]?.Invoke(support_cell);
+                GridManager.instance.TriggerCellUpdate(support_cell);
+            }
+            if(occupancy.type.HasFlag(CellType.NeedSupport))
+            {
+                int2 support_cell = cell + occupancy.cell - new int2(0, 1);
+                GridManager.instance.RemoveCellDelegate(support_cell, OnCellUpdate);
             }
         }
         GridManager.instance.RemoveInfluence(cell.x, config.building_influence);
