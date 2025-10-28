@@ -27,6 +27,6 @@ public class CatastropheManager : MonoBehaviour
         {
             GridManager.instance.DestroyBuildingColumn(new_cell);
         }
-        transform.position = new float3(catastrophe_position, 0, 0);
+        transform.position = new float3(catastrophe_position, Camera.main.transform.position.y, 0);
     }
 }

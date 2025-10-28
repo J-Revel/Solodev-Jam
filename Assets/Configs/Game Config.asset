@@ -20,3 +20,6 @@ MonoBehaviour:
   - 1
   - 2
   - 5
+  chunk_prefabs:
+  - {fileID: 9193797751313560650, guid: 35271f1f8e8aef24787ecb4978d12b9e, type: 3}
+  - {fileID: 9193797751313560650, guid: 0f2144fbcf855ea409d8940a2170e65d, type: 3}

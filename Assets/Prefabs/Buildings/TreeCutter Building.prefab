@@ -70,7 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f5b39b04154f4740813d0ae35ad5797, type: 2}
   gain_per_detection:
   - resource: 0
-    quantity: 5
+    quantity: 2
   area_color: {r: 1, g: 0.5518868, b: 0.5518868, a: 0.078431375}
 --- !u!1 &8071457877937169065
 GameObject:
@@ -100,7 +100,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6220565709106520818}
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -27703342, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  m_Sprite: {fileID: 1935638740, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
