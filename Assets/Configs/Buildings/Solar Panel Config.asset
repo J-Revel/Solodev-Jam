@@ -10,25 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c29a2647e20bddd4eb94918ee11fb8dd, type: 3}
-  m_Name: Tree Farm Config
+  m_Name: Solar Panel Config
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfig
   occupancy_cells:
   - cell:
       x: 0
       y: 0
-    type: 14
-  icon: {fileID: 469181351, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+    type: 10
+  - cell:
+      x: 1
+      y: 0
+    type: 10
+  icon: {fileID: 398074039, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost:
   - resource: 0
     quantity: 10
   - resource: 1
-    quantity: 30
+    quantity: 15
   - resource: 4
     quantity: 1
   production:
   - default_production:
-      resource: 0
-      quantity: 1
+      resource: 1
+      quantity: 3
     altitude_bonus:
       min_altitude: 0
       step_height: 0
@@ -38,10 +42,10 @@ MonoBehaviour:
   death_gain:
   - resource: 4
     quantity: 1
-  display_sprite: {fileID: 469181351, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  display_sprite: {fileID: 398074039, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
-    x: 0
+    x: 0.5
     y: 0
   building_influence: 0
   prefab_override: {fileID: 0}
@@ -49,7 +53,7 @@ MonoBehaviour:
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Tree Farm
-  description: 'Slowly produces wood
+  title: Solar Panel
+  description: 'Produces energy
 
-    Production: +1<sprite=0>'
+    Production: +3<sprite=1>'

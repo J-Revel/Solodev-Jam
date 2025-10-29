@@ -50,8 +50,12 @@ public class BuildingConfig: ScriptableObject
     public OccupancyCell[] occupancy_cells;
 
     public Sprite icon;
+
     public ResourceQuantity[] cost;
     public ResourceProduction[] production;
+    public ResourceQuantity[] instant_gain;
+    public ResourceQuantity[] death_gain;
+
     public Sprite display_sprite;
     public float scale;
     public float2 display_offset;

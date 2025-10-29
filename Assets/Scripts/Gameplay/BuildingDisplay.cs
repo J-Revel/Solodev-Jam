@@ -6,14 +6,25 @@ using Unity.VisualScripting;
 public class BuildingDisplay : MonoBehaviour
 {
     private BuildingBase building_base;
+    public Transform block_display_prefab;
     public SpriteRenderer sprite_renderer;
 
     public void Start()
     {
         building_base = GetComponentInParent<BuildingBase>();
-        sprite_renderer.sprite = building_base.config.display_sprite;
+        if(sprite_renderer)
+            sprite_renderer.sprite = building_base.config.display_sprite;
         transform.localPosition = new float3(building_base.config.display_offset, 0);
         transform.localScale = Vector3.one * building_base.config.scale;
+        if(block_display_prefab != null)
+        {
+            foreach(var block in building_base.config.occupancy_cells)
+            {
+                float2 position = ((float3)transform.position).xy;
+                position += GridManager.instance.GetCellPosition(block.cell);
+                Instantiate(block_display_prefab, new float3(position, 0), quaternion.identity, transform);
+            }
+        }
         if(building_base.config.production.Length > 0)
             TimeManager.instance.tick_event += OnTick;
     }

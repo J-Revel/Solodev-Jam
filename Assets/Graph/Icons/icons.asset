@@ -90,6 +90,21 @@ MonoBehaviour:
     m_GlyphIndex: 0
     m_Scale: 1
     m_Name: icon_wood
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 2
+    m_Scale: 1
+    m_Name: icon_pop
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 3
+    m_Scale: 1
+    m_Name: icon_pop
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 2
+    m_Scale: 1
+    m_Name: icon_pop
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -112,11 +127,43 @@ MonoBehaviour:
       m_Width: 64
       m_Height: 64
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 55
+      m_HorizontalBearingY: 64
       m_HorizontalAdvance: 64
     m_GlyphRect:
       m_X: 126
       m_Y: 330
+      m_Width: 126
+      m_Height: 126
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -740905949, guid: db863970d0a922944bb169da62cd8db9, type: 3}
+  - m_Index: 2
+    m_Metrics:
+      m_Width: 64
+      m_Height: 64
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 64
+      m_HorizontalAdvance: 64
+    m_GlyphRect:
+      m_X: 265
+      m_Y: 330
+      m_Width: 126
+      m_Height: 126
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -740905949, guid: db863970d0a922944bb169da62cd8db9, type: 3}
+  - m_Index: 3
+    m_Metrics:
+      m_Width: 64
+      m_Height: 64
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 64
+      m_HorizontalAdvance: 64
+    m_GlyphRect:
+      m_X: 4
+      m_Y: 179
       m_Width: 126
       m_Height: 126
     m_Scale: 1

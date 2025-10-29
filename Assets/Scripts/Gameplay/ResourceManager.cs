@@ -7,7 +7,11 @@ using UnityEngine;
 
 public enum ResourceType
 {
-    Wood = 0, Energy = 1
+    Wood = 0, 
+    Energy = 1, 
+    Population = 2, 
+    PopulationMax = 3,
+    Worker = 4,
 }
 
 [System.Serializable]
@@ -30,10 +34,13 @@ public class ResourceManager : MonoBehaviour
 {
     public float max_vfx_delay = 0.3f;
     public int[] stock;
+    public float population_gain_interval = 2;
+    private float population_gain_time = 0;
     private int[] gain_per_tick;
 
     public TMPro.TMP_Text resource_display;
     public static ResourceManager instance;
+    public string resource_display_format = "<sprite=0>{0} <sprite=1>{1} <sprite=2>{2}/{3}";
 
     private List<ResourceGainVFXState> resource_gain_vfx = new List<ResourceGainVFXState>();
 
@@ -77,17 +84,20 @@ public class ResourceManager : MonoBehaviour
 
     void Update()
     {
-        System.Text.StringBuilder text_display = new System.Text.StringBuilder(100);
+        population_gain_time += Time.deltaTime * TimeManager.instance.time_scale;
+        if(population_gain_time >= population_gain_interval)
+        {
+            population_gain_time -= population_gain_interval;
+            int population_direction = math.sign(stock[(int)ResourceType.PopulationMax] - stock[(int)ResourceType.Population]);
+            stock[(int)ResourceType.Population] += population_direction;
+            stock[(int)ResourceType.Worker] += population_direction;
+        }
+        string[] stock_text = new string[stock.Length];
         for(int i=0; i<stock.Length; i++)
         {
-            text_display.Append("<sprite=");
-            text_display.Append(i);
-            text_display.Append(">");
-            text_display.Append(stock[i]);
-            text_display.Append(" ");
+            stock_text[i] = stock[i].ToString();
         }
-        resource_display.text = text_display.ToString();
-
+        resource_display.text = string.Format(resource_display_format, stock_text);
         for (int i = resource_gain_vfx.Count-1; i >= 0; i--)
         {
             if (resource_gain_vfx[i].delay > 0)

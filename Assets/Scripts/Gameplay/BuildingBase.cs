@@ -37,6 +37,8 @@ public class BuildingBase : MonoBehaviour
         }
         on_kill += OnKill;
         GridManager.instance.AddInfluence(cell.x, config.building_influence);
+        foreach (var gain in config.instant_gain)
+            ResourceManager.instance.stock[(int)gain.resource] += gain.quantity;
     }
 
     void OnCellUpdate(int2 cell)
@@ -67,6 +69,8 @@ public class BuildingBase : MonoBehaviour
                 GridManager.instance.RemoveCellDelegate(support_cell, OnCellUpdate);
             }
         }
+        foreach (ResourceQuantity resource in config.death_gain)
+            ResourceManager.instance.stock[(int)resource.resource] += resource.quantity;
         GridManager.instance.RemoveInfluence(cell.x, config.building_influence);
         Destroy(gameObject);
     }

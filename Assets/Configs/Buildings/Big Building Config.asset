@@ -52,10 +52,16 @@ MonoBehaviour:
   icon: {fileID: -1554993497, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost:
   - resource: 0
-    quantity: 10
-  - resource: 1
     quantity: 50
+  - resource: 1
+    quantity: 100
+  - resource: 4
+    quantity: 3
   production: []
+  instant_gain: []
+  death_gain:
+  - resource: 4
+    quantity: 3
   display_sprite: {fileID: -1554993497, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:

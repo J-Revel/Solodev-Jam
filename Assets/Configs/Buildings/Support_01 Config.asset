@@ -33,9 +33,9 @@ MonoBehaviour:
   cost:
   - resource: 0
     quantity: 30
-  gain_on_tick:
-  - resource: 0
-    quantity: 1
+  production: []
+  instant_gain: []
+  death_gain: []
   display_sprite: {fileID: -1679431524, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
@@ -45,9 +45,9 @@ MonoBehaviour:
   prefab_override: {fileID: 0}
   unlock_cost:
   - resource: 0
-    quantity: 10
+    quantity: 20
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
   title: 
-  description: 
+  description: Can be used as a support for other buildings

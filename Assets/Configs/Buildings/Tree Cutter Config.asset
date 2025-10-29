@@ -33,7 +33,13 @@ MonoBehaviour:
   cost:
   - resource: 0
     quantity: 10
+  - resource: 4
+    quantity: 4
   production: []
+  instant_gain: []
+  death_gain:
+  - resource: 4
+    quantity: 4
   display_sprite: {fileID: 1935638740, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 2
   display_offset:
@@ -53,5 +59,7 @@ MonoBehaviour:
     - {fileID: 11400000}
   area_preview_range: 5
   area_preview_color: {r: 1, g: 0.8066038, b: 0.8066038, a: 0.19215687}
-  title: 
-  description: 
+  title: Lumberjack
+  description: 'Produces wood using trees in its range
+
+    Production: +1<sprite=0>'

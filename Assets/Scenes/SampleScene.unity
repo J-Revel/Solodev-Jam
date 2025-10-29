@@ -6724,6 +6724,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e43af589627d04e4ea850a10d570d988, type: 2}
   - {fileID: 11400000, guid: f3418768250c01944b0d3879083674c8, type: 2}
   - {fileID: 11400000, guid: cf83732efa50fe144a0ef211cec4738b, type: 2}
+  - {fileID: 11400000, guid: ce383a052df23994fb6d1fde586aff17, type: 2}
+  - {fileID: 11400000, guid: 34a326e290f87a947aeeb7c6e11858fb, type: 2}
 --- !u!1 &966151793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,7 +7127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite=0>10 <sprite=1>20
+  m_text: <sprite=0>10 <sprite=1>20 <sprite=2>10/15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7152,14 +7154,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8371,9 +8373,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9491bae292e53254c8653b6352a8de49, type: 2}
     - target: {fileID: 1818575531930055979, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818575531930055979, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818575531930055979, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1554993497, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+    - target: {fileID: 1818575531930055979, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2887120620849641657, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -8385,6 +8399,10 @@ PrefabInstance:
     - target: {fileID: 2887120620849641657, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887120620849641657, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2887120620849641657, guid: 2980f2477148e6b41a4fe36fa8645d1d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8964,8 +8982,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceManager
   max_vfx_delay: 0.3
-  stock: c8000000c8000000
+  stock: 32000000320000000a0000000f0000000a000000
+  population_gain_interval: 2
   resource_display: {fileID: 1122550245}
+  resource_display_format: <sprite=0>{0} <sprite=1>{1} <sprite=2>{4}/{2} <sprite=3>{3}
   resource_gain_vfx_pool:
     prefab: {fileID: 3656870770446647776, guid: d5a913a81832b44438ecf26b9f7bed81, type: 3}
   resource_gain_vfx_duration: 0.5
