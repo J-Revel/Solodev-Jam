@@ -56,7 +56,7 @@ MonoBehaviour:
   - resource: 1
     quantity: 100
   - resource: 4
-    quantity: 3
+    quantity: 10
   production: []
   instant_gain: []
   death_gain:

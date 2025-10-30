@@ -4,6 +4,7 @@ using UnityEngine;
 public class BuildingDisplayWidget : MonoBehaviour
 {
     public BuildingConfig config;
+    public bool locked;
     public TMPro.TMP_Text title_text;
     public TMPro.TMP_Text description_text;
     public TMPro.TMP_Text building_cost_text;
@@ -26,7 +27,10 @@ public class BuildingDisplayWidget : MonoBehaviour
         if(building_cost_text)
         {
             builder.Append(cost_prefix);
-            foreach(var cost in config.cost)
+            ResourceQuantity[] displayed_cost = config.cost;
+            if (locked)
+                displayed_cost = config.unlock_cost;
+            foreach(var cost in displayed_cost)
             {
                 bool error_color = !ResourceManager.instance.CanPay(cost);
                 if(error_color)

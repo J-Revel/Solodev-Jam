@@ -24,7 +24,9 @@ MonoBehaviour:
   icon: {fileID: -652005037, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   cost:
   - resource: 0
-    quantity: 15
+    quantity: 40
+  - resource: 1
+    quantity: 20
   - resource: 4
     quantity: 2
   production:

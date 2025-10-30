@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
     public int time_scale_level = 0;
 
     public Button[] time_scale_level_buttons;
+    public GameObject pause_display;
 
     public float time_scale => game_config.time_scale_levels[time_scale_level];
 
@@ -18,8 +19,14 @@ public class TimeManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+    }
+
     public IEnumerator Start()
     {
+        Time.timeScale = 0;
+        pause_display.SetActive(true);
         UpdateButtonsDisplay();
         for(int i=0; i<time_scale_level_buttons.Length; i++)
         {
@@ -27,6 +34,8 @@ public class TimeManager : MonoBehaviour
             time_scale_level_buttons[i].onClick.AddListener(() =>
             {
                 time_scale_level = index;
+                Time.timeScale = game_config.time_scale_levels[time_scale_level];
+                pause_display.SetActive(Time.timeScale == 0);
                 UpdateButtonsDisplay();
             });
         }

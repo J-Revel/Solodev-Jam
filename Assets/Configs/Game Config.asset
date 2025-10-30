@@ -13,13 +13,38 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
   cell_size: 1
-  tick_duration: 5
-  catastrophe_speed: 0.1
+  tick_duration: 2
+  catastrophe_speed: 0.25
+  catastrophe_curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0803833
+      inSlope: 0.2193659
+      outSlope: 0.2193659
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9976798
+      value: 0.29924023
+      inSlope: 0.2193659
+      outSlope: 0.2193659
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   time_scale_levels:
   - 0
   - 1
   - 2
   - 5
+  max_level_time: 1500
   chunk_prefabs:
   - {fileID: 9193797751313560650, guid: 35271f1f8e8aef24787ecb4978d12b9e, type: 3}
   - {fileID: 9193797751313560650, guid: 0f2144fbcf855ea409d8940a2170e65d, type: 3}

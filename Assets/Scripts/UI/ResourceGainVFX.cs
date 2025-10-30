@@ -16,7 +16,7 @@ public class ResourceGainVFX : MonoBehaviour
     private void Update()
     {
         transform.position = start_pos + movement_offset * movement_curve.Evaluate(anim_ratio);
-        anim_ratio += Time.deltaTime / anim_duration;
+        anim_ratio += Time.unscaledDeltaTime / anim_duration;
         text.color = Color.Lerp(Color.white, new Color(1, 1, 1, 0), color_curve.Evaluate(anim_ratio));
     }
 }

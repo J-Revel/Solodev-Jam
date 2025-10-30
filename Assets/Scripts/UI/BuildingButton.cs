@@ -20,17 +20,24 @@ public class BuildingButton : MonoBehaviour
     void Start()
     {
         tooltip_display.config = building;
-        tooltip_display.UpdateDisplay();
         icon_image.sprite = building.icon;
         button = GetComponent<Button>();
         if (building.unlock_cost.Length == 0)
+        {
             locked = false;
+        }
+        tooltip_display.locked = locked;
+        tooltip_display.UpdateDisplay();
         button.onClick.AddListener(() =>
         {
             if(locked)
             {
                 if(ResourceManager.instance.Pay(building.unlock_cost))
+                {
                     locked = false;
+                    tooltip_display.locked = false;
+                    tooltip_display.UpdateDisplay();
+                }
             }
             else
                 PlayerInputManager.instance.SelectBuilding(building);
@@ -49,8 +56,8 @@ public class BuildingButton : MonoBehaviour
         locked_image.enabled = locked;
 
         if (show_tooltip)
-            transition_time += Time.deltaTime;
-        else transition_time -= Time.deltaTime;
+            transition_time += Time.unscaledDeltaTime;
+        else transition_time -= Time.unscaledDeltaTime;
 
         transition_time = math.clamp(transition_time, 0, transitions_duration);
         tooltip_canvasgroup.alpha = transition_time / transitions_duration;
