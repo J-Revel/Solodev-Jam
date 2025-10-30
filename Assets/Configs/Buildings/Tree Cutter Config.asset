@@ -41,7 +41,7 @@ MonoBehaviour:
   - resource: 4
     quantity: 4
   display_sprite: {fileID: 1935638740, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
-  scale: 2
+  scale: 1
   display_offset:
     x: 0.5
     y: 0.5

@@ -1,6 +1,14 @@
 using UnityEngine;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEngine.Tilemaps;
+
+[System.Serializable]
+public struct TileLayer
+{
+    public Tilemap tilemap;
+    public RuleTile tile;
+}
 
 [ExecuteAlways]
 public class BuildingDisplay : MonoBehaviour
@@ -9,6 +17,8 @@ public class BuildingDisplay : MonoBehaviour
     public Transform block_display_prefab;
     public SpriteRenderer sprite_renderer;
 
+    public TileLayer[] layers;
+
     public void Start()
     {
         building_base = GetComponentInParent<BuildingBase>();
@@ -16,13 +26,18 @@ public class BuildingDisplay : MonoBehaviour
             sprite_renderer.sprite = building_base.config.display_sprite;
         transform.localPosition = new float3(building_base.config.display_offset, 0);
         transform.localScale = Vector3.one * building_base.config.scale;
-        if(block_display_prefab != null)
+        foreach(TileLayer layer in layers)
         {
+            layer.tilemap.ClearAllTiles();
             foreach(var block in building_base.config.occupancy_cells)
             {
-                float2 position = ((float3)transform.position).xy;
-                position += GridManager.instance.GetCellPosition(block.cell);
-                Instantiate(block_display_prefab, new float3(position, 0), quaternion.identity, transform);
+                layer.tilemap.SetTile(new TileChangeData
+                {
+                    color = Color.white,
+                    position = new Vector3Int(block.cell.x, block.cell.y, 0),
+                    tile = layer.tile,
+                }, false);
+
             }
         }
         if(building_base.config.production.Length > 0)
@@ -39,13 +54,28 @@ public class BuildingDisplay : MonoBehaviour
     {
         if (!Application.isPlaying)
         {
+            foreach(TileLayer layer in layers)
+            {
+                layer.tilemap.ClearAllTiles();
+                foreach(var block in building_base.config.occupancy_cells)
+                {
+                    layer.tilemap.SetTile(new TileChangeData
+                    {
+                        color = Color.white,
+                        position = new Vector3Int(block.cell.x, block.cell.y, 0),
+                        tile = layer.tile,
+                    }, false);
+
+                }
+            }
             if (building_base == null)
             {
 
             }
             if (building_base.config != null)
             {
-                sprite_renderer.sprite = building_base.config.display_sprite;
+                if(sprite_renderer)
+                    sprite_renderer.sprite = building_base.config.display_sprite;
                 transform.localPosition = new float3(building_base.config.display_offset, 0);
                 transform.localScale = Vector3.one * building_base.config.scale;
             }
