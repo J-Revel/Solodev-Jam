@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c29a2647e20bddd4eb94918ee11fb8dd, type: 3}
-  m_Name: Support_01 Config
+  m_Name: Support_03 Config
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfig
   occupancy_cells:
   - cell:
@@ -22,37 +22,30 @@ MonoBehaviour:
       y: 1
     type: 6
   - cell:
-      x: -1
-      y: 1
+      x: 0
+      y: 2
     type: 6
-  - cell:
-      x: 1
-      y: 1
-    type: 6
-  icon: {fileID: -1679431524, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  icon: {fileID: -1587475224, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   icon_additional_text: 
   background_color: {r: 0, g: 0.9308512, b: 1, a: 0.7058824}
   cost:
   - resource: 0
-    quantity: 30
+    quantity: 20
   production: []
   instant_gain: []
   death_gain: []
-  display_sprite: {fileID: -1679431524, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  display_sprite: {fileID: -1587475224, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
     x: 0
-    y: 0.5
+    y: 0
   building_influence: 0
-  prefab_override: {fileID: 0}
+  prefab_override: {fileID: 419267030869956637, guid: 981cad3fbaafa614dabd97d2b70c4c34, type: 3}
   unlock_cost:
   - resource: 0
-    quantity: 20
+    quantity: 50
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Support
-  description: 'Designed for balance on uneven terrain, to use to adapt the environment
-    in a building zone.
-
-    Blueprint has to be unlocked first. '
+  title: 
+  description: Can be used as a support for other buildings

@@ -33,7 +33,9 @@ MonoBehaviour:
       x: 2
       y: 0
     type: 14
-  icon: {fileID: -1587475224, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  icon: {fileID: 4854466137354217128, guid: e89a6faf2a67f9d46bcffda202f2f427, type: 3}
+  icon_additional_text: 2
+  background_color: {r: 1, g: 0.7109691, b: 0.18396229, a: 0.7058824}
   cost:
   - resource: 0
     quantity: 20
@@ -52,7 +54,7 @@ MonoBehaviour:
     x: 0
     y: 0
   building_influence: 0
-  prefab_override: {fileID: 419267030869956637, guid: 981cad3fbaafa614dabd97d2b70c4c34, type: 3}
+  prefab_override: {fileID: 419267030869956637, guid: 5b32a9cdb952ecf45a9a6bd189e05c8e, type: 3}
   unlock_cost:
   - resource: 0
     quantity: 100
@@ -65,4 +67,4 @@ MonoBehaviour:
   description: 'A living space that bring new hands to the community. Can host 3
     workers.
 
-    Effect: +3<sprite=3>'
+    Effect: +5<sprite=3>'

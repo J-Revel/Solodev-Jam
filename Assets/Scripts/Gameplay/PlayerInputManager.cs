@@ -59,6 +59,7 @@ public class PlayerInputManager : MonoBehaviour
 
     public static PlayerInputManager instance;
     private float2 previous_mouse_pos;
+    public bool input_enabled = true;
 
     private void Awake()
     {
@@ -67,6 +68,8 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
+        if (!input_enabled)
+            return;
         float2 mouse_pos = Mouse.current.position.ReadValue();
 
         Ray mouse_ray = Camera.main.ScreenPointToRay(new float3(mouse_pos, 0));

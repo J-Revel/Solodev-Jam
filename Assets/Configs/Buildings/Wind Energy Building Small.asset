@@ -26,6 +26,8 @@ MonoBehaviour:
       y: 0
     type: 1
   icon: {fileID: -289497506, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  icon_additional_text: 
+  background_color: {r: 0.93607116, g: 1, b: 0.3066038, a: 0.7058824}
   cost:
   - resource: 0
     quantity: 30

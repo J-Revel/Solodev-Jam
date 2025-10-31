@@ -50,6 +50,8 @@ MonoBehaviour:
       y: 2
     type: 6
   icon: {fileID: -1554993497, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  icon_additional_text: 
+  background_color: {r: 0.72156864, g: 0.5647059, b: 0.9843138, a: 0.7058824}
   cost:
   - resource: 0
     quantity: 50
