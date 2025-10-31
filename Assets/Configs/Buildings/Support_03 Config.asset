@@ -10,48 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c29a2647e20bddd4eb94918ee11fb8dd, type: 3}
-  m_Name: Tree Farm Config
+  m_Name: Support_03 Config
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfig
   occupancy_cells:
   - cell:
       x: 0
       y: 0
     type: 14
-  icon: {fileID: 469181351, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  - cell:
+      x: 0
+      y: 1
+    type: 6
+  - cell:
+      x: 0
+      y: 2
+    type: 6
+  icon: {fileID: -1587475224, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   icon_additional_text: 
-  background_color: {r: 0.24056602, g: 1, b: 0.2533315, a: 0.7058824}
+  background_color: {r: 0, g: 0.9308512, b: 1, a: 0.7058824}
   cost:
   - resource: 0
-    quantity: 10
-  - resource: 1
-    quantity: 30
-  - resource: 4
-    quantity: 1
-  production:
-  - default_production:
-      resource: 0
-      quantity: 1
-    altitude_bonus:
-      min_altitude: 0
-      step_height: 0
-      max_step: 0
-      bonus_per_step: 0
+    quantity: 20
+  production: []
   instant_gain: []
-  death_gain:
-  - resource: 4
-    quantity: 1
-  display_sprite: {fileID: 469181351, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
+  death_gain: []
+  display_sprite: {fileID: -1587475224, guid: 47073a1ddfc6c34468d1b80b0668b5bb, type: 3}
   scale: 1
   display_offset:
     x: 0
     y: 0
   building_influence: 0
-  prefab_override: {fileID: 0}
-  unlock_cost: []
+  prefab_override: {fileID: 419267030869956637, guid: 981cad3fbaafa614dabd97d2b70c4c34, type: 3}
+  unlock_cost:
+  - resource: 0
+    quantity: 50
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Tree Farm
-  description: 'Slowly produces wood
-
-    Production: +1<sprite=0>'
+  title: 
+  description: Can be used as a support for other buildings

@@ -50,6 +50,8 @@ public class BuildingConfig: ScriptableObject
     public OccupancyCell[] occupancy_cells;
 
     public Sprite icon;
+    public string icon_additional_text;
+    public Color background_color = Color.white;
 
     public ResourceQuantity[] cost;
     public ResourceProduction[] production;

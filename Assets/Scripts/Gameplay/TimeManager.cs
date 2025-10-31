@@ -1,5 +1,8 @@
 using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -13,14 +16,43 @@ public class TimeManager : MonoBehaviour
     public GameObject pause_display;
 
     public float time_scale => game_config.time_scale_levels[time_scale_level];
+    public GameObject pause_menu;
+    private bool pause_menu_displayed;
 
     private void Awake()
     {
         instance = this;
     }
 
+    public void Resume()
+    {
+        pause_menu_displayed = false;
+        pause_menu.SetActive(pause_menu_displayed);
+        PlayerInputManager.instance.input_enabled = !pause_menu_displayed;
+
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Game Scene");
+    }
+
     private void Update()
     {
+        if(!pause_menu_displayed && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Time.timeScale = (Time.timeScale == 0) ? game_config.time_scale_levels[time_scale_level] : 0;
+            pause_display.SetActive(Time.timeScale == 0);
+            UpdateButtonsDisplay();
+        }
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            pause_menu_displayed = !pause_menu_displayed;
+            pause_menu.SetActive(pause_menu_displayed);
+            if(pause_menu_displayed)
+                Time.timeScale = 0;
+            PlayerInputManager.instance.input_enabled = !pause_menu_displayed;
+        }
     }
 
     public IEnumerator Start()

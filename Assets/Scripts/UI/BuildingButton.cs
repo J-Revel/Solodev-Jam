@@ -8,6 +8,7 @@ public class BuildingButton : MonoBehaviour
 {
     public BuildingConfig building;
     public BuildingDisplayWidget tooltip_display;
+    public Image background_image;
     public Image icon_image;
     public Image locked_image;
     public CanvasGroup tooltip_canvasgroup;
@@ -16,11 +17,17 @@ public class BuildingButton : MonoBehaviour
     public bool show_tooltip;
     private bool locked = true;
     private Button button;
+    public TMPro.TMP_Text additional_text;
+    public GameObject additional_element;
     
     void Start()
     {
         tooltip_display.config = building;
+        additional_text.text = building.icon_additional_text;
+        if (building.icon_additional_text.Length <= 0)
+            additional_element.SetActive(false);
         icon_image.sprite = building.icon;
+        background_image.color = building.background_color;
         button = GetComponent<Button>();
         if (building.unlock_cost.Length == 0)
         {
