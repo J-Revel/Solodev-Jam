@@ -51,7 +51,8 @@ MonoBehaviour:
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Tree Farm
-  description: 'Slowly produces wood
+  title: Verdant Dome
+  description: 'A delicate biodome that grows fast-regenerating plants and softwood.
+    Sustainable but slow.
 
     Production: +1<sprite=0>'

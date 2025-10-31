@@ -75,5 +75,6 @@ MonoBehaviour:
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Warehouse
-  description: The main building of your town. You can build only near warehouses.
+  title: Light Generator
+  description: A massive bio-mechanical heart that expands your buildable area. You
+    can build only near Light Generators.

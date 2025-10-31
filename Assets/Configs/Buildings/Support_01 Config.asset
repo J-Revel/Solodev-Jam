@@ -51,5 +51,8 @@ MonoBehaviour:
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: 
-  description: Can be used as a support for other buildings
+  title: Support
+  description: 'Designed for balance on uneven terrain, to use to adapt the environment
+    in a building zone.
+
+    Blueprint has to be unlocked first. '
