@@ -59,7 +59,8 @@ MonoBehaviour:
     - {fileID: 11400000}
   area_preview_range: 5
   area_preview_color: {r: 1, g: 0.8066038, b: 0.8066038, a: 0.19215687}
-  title: Lumberjack
-  description: 'Produces wood using trees in its range
+  title: Treeforge
+  description: 'Processes wood from nearby trees: efficiency depends on its surroundings.
+    Cannot be near another Treeforge.
 
     Production: +1<sprite=0>'

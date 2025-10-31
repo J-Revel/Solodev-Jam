@@ -49,7 +49,8 @@ MonoBehaviour:
   avoid_buildings: []
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
-  title: Medium House
-  description: 'Can host 1 worker
+  title: Small House
+  description: 'A living space that bring new hands to the community. Can host 1
+    worker.
 
     Effect: +1<sprite=3>'

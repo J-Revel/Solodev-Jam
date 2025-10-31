@@ -62,6 +62,7 @@ MonoBehaviour:
   area_preview_range: 0
   area_preview_color: {r: 0, g: 0, b: 0, a: 0}
   title: Medium House
-  description: 'Can host 3 workers
+  description: 'A living space that bring new hands to the community. Can host 3
+    workers.
 
     Effect: +3<sprite=3>'
