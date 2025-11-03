@@ -19,6 +19,7 @@ public class BuildingButton : MonoBehaviour
     private Button button;
     public TMPro.TMP_Text additional_text;
     public GameObject additional_element;
+    public AudioSource click_sound;
     
     void Start()
     {
@@ -48,6 +49,7 @@ public class BuildingButton : MonoBehaviour
             }
             else
                 PlayerInputManager.instance.SelectBuilding(building);
+            click_sound.Play();
         });
     }
 

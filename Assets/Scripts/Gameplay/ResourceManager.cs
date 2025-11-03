@@ -47,6 +47,23 @@ public class ResourceManager : MonoBehaviour
     public PrefabPool resource_gain_vfx_pool;
     public float resource_gain_vfx_duration = 0.5f;
     public float3 resource_gain_vfx_offset = new float3(0, 1, 0);
+    public int generator_count = 0;
+    public GameObject gameover_menu;
+
+    public void AddGenerator()
+    {
+        generator_count++;
+    }
+
+    public void RemoveGenerator()
+    {
+        generator_count--;
+        if(generator_count <= 0)
+        {
+            gameover_menu.SetActive(true);
+            TimeManager.instance.Pause();
+        }
+    }
 
     public void GainResource(ResourceQuantity gain, float3 position)
     {

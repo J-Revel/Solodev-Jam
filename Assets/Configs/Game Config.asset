@@ -45,6 +45,28 @@ MonoBehaviour:
   - 2
   - 5
   max_level_time: 1500
+  starting_chunks: []
+  chunk_sections:
+  - prefabs:
+    - {fileID: 9193797751313560650, guid: b96be0b6ecffa24448478f90a464984d, type: 3}
+    chunk_count: 1
+  - prefabs:
+    - {fileID: 9193797751313560650, guid: 35271f1f8e8aef24787ecb4978d12b9e, type: 3}
+    - {fileID: 9193797751313560650, guid: 0f2144fbcf855ea409d8940a2170e65d, type: 3}
+    chunk_count: 2
+  - prefabs:
+    - {fileID: 9193797751313560650, guid: 35271f1f8e8aef24787ecb4978d12b9e, type: 3}
+    - {fileID: 9193797751313560650, guid: 0f2144fbcf855ea409d8940a2170e65d, type: 3}
+    - {fileID: 9193797751313560650, guid: 98e3c19c8d6874a77a708b01cc5e757f, type: 3}
+    - {fileID: 9193797751313560650, guid: f991a2b40b0c9483daa9060717d26999, type: 3}
+    chunk_count: 3
+  - prefabs:
+    - {fileID: 9193797751313560650, guid: 98e3c19c8d6874a77a708b01cc5e757f, type: 3}
+    - {fileID: 9193797751313560650, guid: f991a2b40b0c9483daa9060717d26999, type: 3}
+    chunk_count: 5
   chunk_prefabs:
   - {fileID: 9193797751313560650, guid: 35271f1f8e8aef24787ecb4978d12b9e, type: 3}
   - {fileID: 9193797751313560650, guid: 0f2144fbcf855ea409d8940a2170e65d, type: 3}
+  - {fileID: 9193797751313560650, guid: 98e3c19c8d6874a77a708b01cc5e757f, type: 3}
+  - {fileID: 9193797751313560650, guid: f991a2b40b0c9483daa9060717d26999, type: 3}
+  generator_config: {fileID: 11400000, guid: 9491bae292e53254c8653b6352a8de49, type: 2}

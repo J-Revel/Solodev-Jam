@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -30,6 +29,11 @@ public class TimeManager : MonoBehaviour
         pause_menu.SetActive(pause_menu_displayed);
         PlayerInputManager.instance.input_enabled = !pause_menu_displayed;
 
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
     }
 
     public void RestartGame()

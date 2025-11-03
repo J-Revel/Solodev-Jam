@@ -56,6 +56,8 @@ public class PlayerInputManager : MonoBehaviour
     public PrefabPool ghost_tiles_pool;
     public BuildingBase building_prefab;
     public SpriteRenderer ghost;
+    public AudioSource click_sound;
+    public AudioSource destroy_sound;
 
     public static PlayerInputManager instance;
     private float2 previous_mouse_pos;
@@ -136,11 +138,12 @@ public class PlayerInputManager : MonoBehaviour
                 BuildingBase building = Instantiate(prefab, new float3(cell_pos, 0), quaternion.identity);
                 building.config = selected_building;
                 building.cell = mouse_cell;
+                click_sound.Play();
             }
         }
         else
         {
-            if(Mouse.current.leftButton.isPressed)
+            if(Mouse.current.leftButton.isPressed && !Mouse.current.leftButton.wasPressedThisFrame)
             {
                 CameraController.instance.Move(mouse_delta);
             }

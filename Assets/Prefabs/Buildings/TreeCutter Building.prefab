@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a988f52721d0794d9029941e4b37552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingBase
+  game_config: {fileID: 11400000, guid: a3e6c9f6f6f782147a8f5671355a501a, type: 2}
   config: {fileID: 11400000, guid: 82aefafc6abe26442be13edf1759c17f, type: 2}
   cell:
     x: 0
@@ -175,4 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d68b9e7f929ff44be837bffcd0ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingDisplay
+  block_display_prefab: {fileID: 0}
   sprite_renderer: {fileID: 1818575531930055979}
+  layers: []

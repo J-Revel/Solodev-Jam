@@ -3,14 +3,25 @@ using UnityEngine;
 
 public class BuildingBase : MonoBehaviour
 {
+    public GameConfig game_config;
     public System.Action on_tick;
     public System.Action on_kill;
     private bool killed = false;
     public BuildingConfig config;
     public int2 cell;
 
+    private void OnDestroy()
+    {
+        if (config == game_config.generator_config)
+            ResourceManager.instance.RemoveGenerator();
+    }
+
     void Start()
     {
+        if(config == game_config.generator_config)
+        {
+            ResourceManager.instance.AddGenerator();
+        }
         cell = GridManager.instance.GetCellAtPosition(((float3)transform.position).xy);
         foreach(OccupancyCell occupancy in config.occupancy_cells)
         {
@@ -72,6 +83,7 @@ public class BuildingBase : MonoBehaviour
         foreach (ResourceQuantity resource in config.death_gain)
             ResourceManager.instance.stock[(int)resource.resource] += resource.quantity;
         GridManager.instance.RemoveInfluence(cell.x, config.building_influence);
+        PlayerInputManager.instance.destroy_sound.Play();
         Destroy(gameObject);
     }
 
